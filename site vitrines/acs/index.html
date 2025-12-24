@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Africa Company Service Sarl - Excellence au service de votre sécurité et de vos projets</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'acs-blue': '#0047AB', // Bleu cobalt professionnel
+                        'acs-green': '#10B981', // Vert pour succès/croissance
+                        'acs-red': '#EF4444', // Rouge pour alertes/attention
+                        'acs-light': '#F8FAFC',
+                        'acs-gray': '#64748B',
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif'],
+                    },
+                    borderRadius: {
+                        'xl': '1rem',
+                        '2xl': '1.5rem',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        .shadow-soft {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px);
+            transition: transform 0.3s ease;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .modal.active {
+            display: flex;
+        }
+        
+        .modal-content {
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body class="bg-acs-light text-gray-800">
+	   <!-- Header / Navigation -->
+	<header class="sticky top-0 z-50 bg-white shadow-soft py-4">
+	    <div class="container mx-auto px-6 flex justify-between items-center">
+		<!-- Logo -->
+		<div class="flex items-center">
+		    <!-- Logo image -->
+		    <img src="logo.jpg" alt="ACS Logo" class="h-14 w-14 object-cover">
+		    <div class="ml-3">
+		        <h1 class="font-bold text-xl">
+		            <span class="text-acs-blue">Africa</span>
+		            <span class="text-acs-green">Company</span>
+		            <span class="text-acs-red">Service</span>
+		        </h1>
+		        <p class="text-xs text-acs-gray">SARL</p>
+		    </div>
+		</div>
+		
+		<!-- Menu Desktop -->
+		<nav class="hidden md:flex space-x-8">
+		    <a href="#accueil" class="font-medium hover:text-acs-blue transition-colors">Accueil</a>
+		    <a href="#services" class="font-medium hover:text-acs-blue transition-colors">Services</a>
+		    <a href="#investissement" class="font-medium hover:text-acs-blue transition-colors">Investissement</a>
+		    <a href="#contact" class="font-medium hover:text-acs-blue transition-colors">Contact</a>
+		</nav>
+		
+		<!-- Bouton Contact Desktop -->
+		<a href="#contact" class="hidden md:block bg-acs-blue text-white px-6 py-2 rounded-full font-medium hover:bg-blue-700 transition-colors">
+		    Contactez-nous
+		</a>
+		
+		<!-- Menu Mobile -->
+		<div class="md:hidden">
+		    <button id="menuBtn" class="text-acs-blue text-2xl">
+		        <i class="fas fa-bars"></i>
+		    </button>
+		</div>
+	    </div>
+	</header>
+        <!-- Menu Mobile -->
+        <div id="mobileMenu" class="md:hidden hidden bg-white px-6 py-4 shadow-lg">
+            <div class="flex flex-col space-y-4">
+                <a href="#accueil" class="font-medium hover:text-acs-blue transition-colors py-2 border-b">Accueil</a>
+                <a href="#services" class="font-medium hover:text-acs-blue transition-colors py-2 border-b">Services</a>
+                <a href="#investissement" class="font-medium hover:text-acs-blue transition-colors py-2 border-b">Investissement</a>
+                <a href="#contact" class="font-medium hover:text-acs-blue transition-colors py-2 border-b">Contact</a>
+                <a href="#contact" class="bg-acs-blue text-white px-6 py-2 rounded-full font-medium text-center hover:bg-blue-700 transition-colors mt-2">
+                    Contactez-nous
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="hero-bg py-20 md:py-32">
+        <div class="container mx-auto px-6">
+            <div class="max-w-3xl">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                    L'excellence au service de votre <span class="text-acs-blue">sécurité</span> et de vos <span class="text-acs-green">projets</span>
+                </h1>
+                <p class="text-xl text-acs-gray mb-10">
+                    Société multisectorielle spécialisée en Gardiennage, Transport, Construction, Import-Export et Restauration à Goma, RDC.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#services" class="bg-acs-blue text-white px-8 py-3 rounded-full font-medium hover:bg-blue-700 transition-colors text-center shadow-lg">
+                        Découvrir nos services
+                    </a>
+                    <a href="#contact" class="bg-white text-acs-blue border border-acs-blue px-8 py-3 rounded-full font-medium hover:bg-acs-blue hover:text-white transition-colors text-center shadow-soft">
+                        <i class="fas fa-phone mr-2"></i> Nous appeler
+                    </a>
+                </div>
+                
+                <!-- Indicateurs de performance -->
+                <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-acs-blue mb-2">5+</div>
+                        <div class="text-acs-gray">Secteurs d'activité</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-acs-green mb-2">50+</div>
+                        <div class="text-acs-gray">Clients satisfaits</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-acs-red mb-2">24/7</div>
+                        <div class="text-acs-gray">Service sécurité</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-acs-blue mb-2">100%</div>
+                        <div class="text-acs-gray">Engagement qualité</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Services -->
+    <section id="services" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Nos Services</h2>
+                <p class="text-acs-gray max-w-2xl mx-auto">
+                    Africa Company Service Sarl opère dans plusieurs secteurs d'activité pour répondre à tous vos besoins professionnels.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Carte Sécurité & Gardiennage -->
+                <div class="bg-acs-light rounded-2xl p-8 shadow-soft card-hover">
+                    <div class="h-14 w-14 rounded-xl bg-acs-blue flex items-center justify-center mb-6">
+                        <i class="fas fa-shield-alt text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Sécurité & Gardiennage</h3>
+                    <p class="text-acs-gray mb-6">
+                        Services de protection et de surveillance professionnels pour garantir la sécurité de vos biens et de vos collaborateurs.
+                    </p>
+                    <button class="service-btn text-acs-blue font-medium" data-service="securite">
+                        <i class="fas fa-arrow-right mr-2"></i>
+                        En savoir plus
+                    </button>
+                </div>
+                
+                <!-- Carte Transport & Logistique -->
+                <div class="bg-acs-light rounded-2xl p-8 shadow-soft card-hover">
+                    <div class="h-14 w-14 rounded-xl bg-acs-green flex items-center justify-center mb-6">
+                        <i class="fas fa-truck text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Transport & Logistique</h3>
+                    <p class="text-acs-gray mb-6">
+                        Solutions de transport et de logistique adaptées à vos besoins, grâce à notre branche spécialisée African Trans SARL.
+                    </p>
+                    <button class="service-btn text-acs-green font-medium" data-service="transport">
+                        <i class="fas fa-arrow-right mr-2"></i>
+                        En savoir plus
+                    </button>
+                </div>
+                
+                <!-- Carte Import-Export -->
+                <div class="bg-acs-light rounded-2xl p-8 shadow-soft card-hover">
+                    <div class="h-14 w-14 rounded-xl bg-acs-red flex items-center justify-center mb-6">
+                        <i class="fas fa-globe text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Import-Export</h3>
+                    <p class="text-acs-gray mb-6">
+                        Services d'importation et d'exportation pour faciliter vos échanges commerciaux internationaux.
+                    </p>
+                    <button class="service-btn text-acs-red font-medium" data-service="import">
+                        <i class="fas fa-arrow-right mr-2"></i>
+                        En savoir plus
+                    </button>
+                </div>
+                
+                <!-- Carte Construction & Rénovation -->
+                <div class="bg-acs-light rounded-2xl p-8 shadow-soft card-hover">
+                    <div class="h-14 w-14 rounded-xl bg-acs-blue flex items-center justify-center mb-6">
+                        <i class="fas fa-hammer text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Construction & Rénovation</h3>
+                    <p class="text-acs-gray mb-6">
+                        Réalisation de projets de construction et de rénovation avec des matériaux de qualité et une équipe expérimentée.
+                    </p>
+                    <button class="service-btn text-acs-blue font-medium" data-service="construction">
+                        <i class="fas fa-arrow-right mr-2"></i>
+                        En savoir plus
+                    </button>
+                </div>
+                
+                <!-- Carte Restauration -->
+                <div class="bg-acs-light rounded-2xl p-8 shadow-soft card-hover">
+                    <div class="h-14 w-14 rounded-xl bg-acs-green flex items-center justify-center mb-6">
+                        <i class="fas fa-utensils text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Restauration</h3>
+                    <p class="text-acs-gray mb-6">
+                        Services de restauration de qualité pour vos événements professionnels et besoins culinaires.
+                    </p>
+                    <button class="service-btn text-acs-green font-medium" data-service="restauration">
+                        <i class="fas fa-arrow-right mr-2"></i>
+                        En savoir plus
+                    </button>
+                </div>
+                
+                <!-- Carte Contact -->
+                <div class="bg-gradient-to-r from-acs-blue to-acs-green rounded-2xl p-8 shadow-soft text-white">
+                    <div class="h-14 w-14 rounded-xl bg-white flex items-center justify-center mb-6">
+                        <i class="fas fa-handshake text-acs-blue text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Un projet ?</h3>
+                    <p class="mb-6 opacity-90">
+                        Nous sommes à votre écoute pour discuter de vos besoins spécifiques et vous proposer des solutions sur mesure.
+                    </p>
+                    <a href="#contact" class="bg-white text-acs-blue px-6 py-2 rounded-full font-medium hover:bg-acs-light transition-colors inline-block">
+                        <i class="fas fa-phone-alt mr-2"></i> Discutons-en
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Investissement -->
+    <section id="investissement" class="py-20 bg-acs-light">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white rounded-2xl shadow-soft overflow-hidden">
+                    <div class="md:flex">
+                        <div class="md:w-2/3 p-8 md:p-12">
+                            <div class="inline-flex items-center px-4 py-1 bg-gradient-to-r from-acs-green to-acs-blue text-white rounded-full font-medium mb-6">
+                                <i class="fas fa-star mr-2"></i> Opportunité d'investissement
+                            </div>
+                            <h2 class="text-3xl font-bold text-gray-900 mb-6">
+                                Souscription de parts sociales - <span class="text-acs-blue">African Trans SARL</span>
+                            </h2>
+                            <p class="text-acs-gray mb-6">
+                                Nous invitons les investisseurs intéressés à participer au développement de notre branche de transport et logistique.
+                            </p>
+                            <div class="mb-8">
+                                <h3 class="text-xl font-bold mb-4 text-acs-blue">Détails de l'offre :</h3>
+                                <ul class="space-y-3">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-acs-green mr-3 mt-1"></i>
+                                        <span>Capital social : <strong class="text-acs-red">20 000 USD</strong></span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-acs-green mr-3 mt-1"></i>
+                                        <span>Parts sociales disponibles pour souscription</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-acs-green mr-3 mt-1"></i>
+                                        <span>Opportunité de croissance dans le secteur du transport en RDC</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-acs-green mr-3 mt-1"></i>
+                                        <span class="font-bold text-acs-red">Retour sur investissement attractif</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <a href="#contact" class="bg-gradient-to-r from-acs-green to-acs-blue text-white px-8 py-3 rounded-full font-medium hover:opacity-90 transition-all inline-block shadow-lg">
+                                <i class="fas fa-chart-line mr-2"></i> En savoir plus sur l'investissement
+                            </a>
+                        </div>
+                        <div class="md:w-1/3 bg-gradient-to-b from-acs-blue to-acs-green p-8 md:p-12 flex items-center">
+                            <div class="text-white text-center">
+                                <i class="fas fa-chart-line text-5xl mb-6 opacity-80"></i>
+                                <h3 class="text-2xl font-bold mb-4">Investissez avec nous</h3>
+                                <p class="opacity-90">
+                                    Rejoignez-nous dans le développement d'African Trans SARL et participez à la croissance de notre entreprise.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Contact -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Contactez-nous</h2>
+                <p class="text-acs-gray max-w-2xl mx-auto">
+                    Pour toute demande d'information, devis ou discussion sur nos services, n'hésitez pas à nous contacter.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                <!-- Carte d'appel -->
+                <div class="bg-gradient-to-br from-acs-blue to-acs-green rounded-2xl p-8 shadow-soft text-white">
+                    <h3 class="text-2xl font-bold mb-6">Appelez-nous directement</h3>
+                    <p class="mb-8 opacity-90">
+                        Pour une réponse rapide et personnalisée, contactez-nous par téléphone. Nos équipes sont disponibles pour répondre à toutes vos questions.
+                    </p>
+                    
+                    <div class="space-y-6 mb-10">
+                        <div class="flex items-center bg-white/20 rounded-xl p-4">
+                            <div class="h-12 w-12 rounded-full bg-white flex items-center justify-center mr-4">
+                                <i class="fas fa-phone text-acs-blue text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Téléphone principal</h4>
+                                <p class="text-xl font-bold">+243 821 049 414</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center bg-white/20 rounded-xl p-4">
+                            <div class="h-12 w-12 rounded-full bg-white flex items-center justify-center mr-4">
+                                <i class="fas fa-mobile-alt text-acs-green text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Téléphone secondaire</h4>
+                                <p class="text-xl font-bold">+243 992 110 468</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center">
+                        <a href="tel:+243821049414" class="bg-white text-acs-blue px-8 py-3 rounded-full font-bold hover:bg-gray-100 transition-colors inline-block shadow-lg">
+                            <i class="fas fa-phone-alt mr-2"></i> Appeler maintenant
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Informations de contact -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">Nos coordonnées</h3>
+                    
+                    <div class="space-y-8">
+                        <div class="flex items-start">
+                            <div class="h-12 w-12 rounded-xl bg-acs-blue flex items-center justify-center mr-4">
+                                <i class="fas fa-map-marker-alt text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">Adresse</h4>
+                                <p class="text-acs-gray">
+                                    126, Av. des Anges, Q. Les Volcans<br>
+                                    Goma, République Démocratique du Congo
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="h-12 w-12 rounded-xl bg-acs-green flex items-center justify-center mr-4">
+                                <i class="fas fa-envelope text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">Email</h4>
+                                <p class="text-acs-gray">
+                                    africacampanyservices24@gmail.com
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="h-12 w-12 rounded-xl bg-acs-red flex items-center justify-center mr-4">
+                                <i class="fas fa-file-contract text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">Informations légales</h4>
+                                <p class="text-acs-gray text-sm">
+                                    <span class="font-bold text-acs-red">RCCM</span> GOM/RCCM/16-B-0508<br>
+                                    <span class="font-bold text-acs-green">ID NAT</span> 5-9-N15273S<br>
+                                    <span class="font-bold text-acs-blue">N° Impôt</span> A1621977G
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- Horaires -->
+                        <div class="flex items-start">
+                            <div class="h-12 w-12 rounded-xl bg-gradient-to-r from-acs-blue to-acs-green flex items-center justify-center mr-4">
+                                <i class="fas fa-clock text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">Horaires d'ouverture</h4>
+                                <p class="text-acs-gray">
+                                    <span class="font-bold">Lundi - Vendredi:</span> 8h00 - 18h00<br>
+                                    <span class="font-bold">Samedi:</span> 9h00 - 13h00<br>
+                                    <span class="font-bold text-acs-red">Dimanche:</span> Fermé
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Carte -->
+                    <div class="mt-12 bg-acs-light rounded-2xl p-6 shadow-soft">
+                        <h4 class="font-bold text-lg mb-4">Localisation</h4>
+                        <div class="h-64 bg-gradient-to-r from-acs-blue/20 to-acs-green/20 rounded-xl flex items-center justify-center border-2 border-dashed border-acs-blue/30">
+                            <div class="text-center">
+                                <i class="fas fa-map-marked-alt text-acs-blue text-4xl mb-3"></i>
+                                <p class="text-acs-gray">Goma, République Démocratique du Congo</p>
+                                <p class="text-sm text-acs-red mt-2">126, Av. des Anges, Q. Les Volcans</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Logo et description -->
+                <div>
+                    <div class="flex items-center mb-6">
+                        <div class="h-10 w-10 rounded-full bg-gradient-to-r from-acs-blue to-acs-green flex items-center justify-center">
+                            <span class="text-white font-bold">ACS</span>
+                        </div>
+                        <div class="ml-3">
+                            <h1 class="font-bold text-xl">Africa Company Service</h1>
+                            <p class="text-xs text-gray-400">SARL</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-6">
+                        Société multisectorielle offrant des services de qualité en sécurité, transport, construction, import-export et restauration.
+                    </p>
+                </div>
+                
+                <!-- Liens rapides -->
+                <div>
+                    <h3 class="text-lg font-bold mb-6">Liens rapides</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#accueil" class="text-gray-400 hover:text-acs-green transition-colors">Accueil</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-acs-green transition-colors">Services</a></li>
+                        <li><a href="#investissement" class="text-gray-400 hover:text-acs-green transition-colors">Investissement</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-acs-green transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Services -->
+                <div>
+                    <h3 class="text-lg font-bold mb-6">Nos services</h3>
+                    <ul class="space-y-3">
+                        <li><button class="service-btn text-gray-400 hover:text-acs-blue transition-colors text-left" data-service="securite">Sécurité & Gardiennage</button></li>
+                        <li><button class="service-btn text-gray-400 hover:text-acs-green transition-colors text-left" data-service="transport">Transport & Logistique</button></li>
+                        <li><button class="service-btn text-gray-400 hover:text-acs-red transition-colors text-left" data-service="import">Import-Export</button></li>
+                        <li><button class="service-btn text-gray-400 hover:text-acs-blue transition-colors text-left" data-service="construction">Construction & Rénovation</button></li>
+                        <li><button class="service-btn text-gray-400 hover:text-acs-green transition-colors text-left" data-service="restauration">Restauration</button></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact footer -->
+                <div>
+                    <h3 class="text-lg font-bold mb-6">Contact</h3>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mr-3 mt-1 text-acs-blue"></i>
+                            <span>126, Av. des Anges, Q. Les Volcans, Goma, RDC</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone mr-3 mt-1 text-acs-green"></i>
+                            <span>+243 821 049 414 / +243 992 110 468</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mr-3 mt-1 text-acs-red"></i>
+                            <span>africacampanyservices24@gmail.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; <span id="currentYear"></span> Africa Company Service Sarl. Tous droits réservés.</p>
+                <p class="text-sm mt-2">
+                    <span class="text-acs-red">RCCM</span> GOM/RCCM/16-B-0508 | 
+                    <span class="text-acs-green">ID NAT</span> 5-9-N15273S | 
+                    <span class="text-acs-blue">N° Impôt</span> A1621977G
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modales pour les services -->
+    
+    <!-- Modal Sécurité -->
+    <div id="modal-securite" class="modal">
+        <div class="modal-content bg-white rounded-2xl w-full p-6 md:p-8">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold text-acs-blue">Sécurité & Gardiennage</h3>
+                <button class="close-modal text-2xl text-acs-gray hover:text-acs-red">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="mb-6 p-4 bg-acs-blue/10 rounded-xl border-l-4 border-acs-blue">
+                <p class="font-medium text-acs-blue">
+                    <i class="fas fa-shield-alt mr-2"></i>
+                    Protection complète pour vos biens et vos collaborateurs
+                </p>
+            </div>
+            
+            <div class="space-y-4 text-acs-gray">
+                <p>
+                    Notre service de sécurité et gardiennage offre une protection complète et professionnelle adaptée à vos besoins spécifiques. Nous mettons à votre disposition des agents de sécurité formés et expérimentés, capables d'assurer la surveillance de vos locaux, l'accueil et le contrôle d'accès, ainsi que la gestion des situations d'urgence.
+                </p>
+                
+                <p>
+                    Nous proposons différentes formules de sécurité : gardiennage statique, rondes de surveillance, vidéosurveillance, et services de sécurité événementielle. Chaque solution est personnalisée en fonction de votre activité, de la taille de vos installations et de votre niveau de risque. Nos agents sont équipés des dernières technologies et suivent des formations continues pour rester à la pointe des techniques de sécurité.
+                </p>
+                
+                <p>
+                    La sécurité de votre entreprise est notre priorité. Nous établissons des protocoles précis pour chaque intervention et maintenons une communication constante avec nos équipes sur le terrain. Notre service 24h/24 et 7j/7 vous garantit une tranquillité d'esprit totale, quelle que soit l'heure ou le jour. Nous couvrons tous les secteurs : entreprises commerciales, sites industriels, résidences privées, et événements publics.
+                </p>
+            </div>
+            
+            <div class="mt-8 pt-6 border-t border-gray-200">
+                <div class="flex flex-col sm:flex-row justify-between items-center">
+                    <div>
+                        <p class="font-bold text-acs-blue mb-2">Service disponible 24h/24</p>
+                        <p class="text-sm text-acs-gray">Intervention rapide garantie</p>
+                    </div>
+                    <a href="#contact" class="mt-4 sm:mt-0 bg-acs-blue text-white px-6 py-2 rounded-full font-medium hover:bg-blue-700 transition-colors">
+                        <i class="fas fa-phone-alt mr-2"></i> Demander un devis
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal Transport -->
+    <div id="modal-transport" class="modal">
+        <div class="modal-content bg-white rounded-2xl w-full p-6 md:p-8">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold text-acs-green">Transport & Logistique</h3>
+                <button class="close-modal text-2xl text-acs-gray hover:text-acs-red">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="mb-6 p-4 bg-acs-green/10 rounded-xl border-l-4 border-acs-green">
+                <p class="font-medium text-acs-green">
+                    <i class="fas fa-truck mr-2"></i>
+                    Solutions de transport adaptées à tous vos besoins
+                </p>
+            </div>
+            
+            <div class="space-y-4 text-acs-gray">
+                <p>
+                    Grâce à notre branche spécialisée African Trans SARL, nous offrons des solutions complètes de transport et logistique pour les particuliers et les entreprises. Notre flotte de véhicules modernes et diversifiée nous permet de répondre à tous types de demandes : transport de marchandises, déménagement, livraison express, et solutions logistiques sur mesure.
+                </p>
+                
+                <p>
+                    Nous maîtrisons l'ensemble de la chaîne logistique, depuis la prise en charge de vos marchandises jusqu'à leur livraison finale. Nos équipes sont formées aux meilleures pratiques du secteur et disposent des autorisations nécessaires pour le transport de différents types de produits. Nous assurons également le suivi en temps réel de vos livraisons pour une transparence totale.
+                </p>
+                
+                <p>
+                    Notre connaissance du terrain en République Démocratique du Congo et dans la région nous permet d'optimiser les itinéraires et les délais de livraison. Nous proposons des services réguliers sur les principaux axes ainsi que des solutions sur mesure pour les destinations plus spécifiques. La sécurité de vos biens est notre priorité, avec des véhicules équipés et des chauffeurs expérimentés.
+                </p>
+            </div>
+            
+            <div class="mt-8 pt-6 border-t border-gray-200">
+                <div class="flex flex-col sm:flex-row justify-between items-center">
+                    <div>
+                        <p class="font-bold text-acs-green mb-2">Flotte moderne et diversifiée</p>
+                        <p class="text-sm text-acs-gray">Couverture nationale et régionale</p>
+                    </div>
+                    <a href="#contact" class="mt-4 sm:mt-0 bg-acs-green text-white px-6 py-2 rounded-full font-medium hover:bg-green-600 transition-colors">
+                        <i class="fas fa-phone-alt mr-2"></i> Demander un devis
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal Import-Export -->
+    <div id="modal-import" class="modal">
+        <div class="modal-content bg-white rounded-2xl w-full p-6 md:p-8">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold text-acs-red">Import-Export</h3>
+                <button class="close-modal text-2xl text-acs-gray hover:text-acs-red">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="mb-6 p-4 bg-acs-red/10 rounded-xl border-l-4 border-acs-red">
+                <p class="font-medium text-acs-red">
+                    <i class="fas fa-globe mr-2"></i>
+                    Facilitez vos échanges commerciaux internationaux
+                </p>
+            </div>
+            
+            <div class="space-y-4 text-acs-gray">
+                <p>
+                    Notre service d'import-export vous accompagne dans le développement de vos activités commerciales à l'international. Nous prenons en charge l'ensemble du processus, depuis la recherche de fournisseurs ou de clients jusqu'à la livraison finale, en passant par toutes les formalités douanières et administratives. Notre expertise du marché africain et international est un atout majeur pour vos projets.
+                </p>
+                
+                <p>
+                    Nous disposons d'un réseau de partenaires fiables dans plusieurs pays, ce qui nous permet de vous proposer des solutions adaptées à vos besoins spécifiques. Que vous souhaitiez importer des produits vers la RDC ou exporter des produits locaux vers d'autres marchés, nous mettons à votre disposition notre connaissance des réglementations, des tendances du marché et des opportunités commerciales.
+                </p>
+                
+                <p>
+                    Notre équipe suit une formation continue sur les évolutions réglementaires et les pratiques du commerce international. Nous vous accompagnons dans l'optimisation de vos coûts logistiques et dans la gestion des risques associés aux échanges internationaux. Grâce à notre présence sur le terrain et notre connaissance des spécificités locales, nous vous garantissons des transactions sécurisées et efficaces.
+                </p>
+            </div>
+            
+            <div class="mt-8 pt-6 border-t border-gray-200">
+                <div class="flex flex-col sm:flex-row justify-between items-center">
+                    <div>
+                        <p class="font-bold text-acs-red mb-2">Expertise des marchés africains</p>
+                        <p class="text-sm text-acs-gray">Réseau international de partenaires</p>
+                    </div>
+                    <a href="#contact" class="mt-4 sm:mt-0 bg-acs-red text-white px-6 py-2 rounded-full font-medium hover:bg-red-600 transition-colors">
+                        <i class="fas fa-phone-alt mr-2"></i> Demander un devis
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal Construction -->
+    <div id="modal-construction" class="modal">
+        <div class="modal-content bg-white rounded-2xl w-full p-6 md:p-8">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold text-acs-blue">Construction & Rénovation</h3>
+                <button class="close-modal text-2xl text-acs-gray hover:text-acs-red">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="mb-6 p-4 bg-acs-blue/10 rounded-xl border-l-4 border-acs-blue">
+                <p class="font-medium text-acs-blue">
+                    <i class="fas fa-hammer mr-2"></i>
+                    Réalisation de projets de qualité avec des matériaux durables
+                </p>
+            </div>
+            
+            <div class="space-y-4 text-acs-gray">
+                <p>
+                    Notre service de construction et rénovation prend en charge vos projets du début à la fin, avec un souci constant de qualité, de respect des délais et du budget. Nous intervenons sur tous types de chantiers : bâtiments résidentiels, locaux commerciaux, infrastructures industrielles et travaux de rénovation. Notre équipe d'experts assure la coordination de l'ensemble des corps de métier pour un résultat optimal.
+                </p>
+                
+                <p>
+                    Nous travaillons avec des matériaux de première qualité, sélectionnés pour leur durabilité et leur adéquation avec le climat local. Notre connaissance des spécificités de la région de Goma et de la RDC nous permet de proposer des solutions techniques adaptées aux contraintes environnementales et réglementaires. Nous accordons une importance particulière à la sécurité sur nos chantiers et au respect des normes en vigueur.
+                </p>
+                
+                <p>
+                    Pour chaque projet, nous établissons un planning détaillé et assurons un suivi rigoureux de l'avancement des travaux. Nous vous tenons informés régulièrement de l'évolution du chantier et sommes à votre écoute pour toute modification ou adaptation en cours de réalisation. Notre objectif est de concrétiser votre vision tout en garantissant la solidité et la pérennité de vos installations.
+                </p>
+            </div>
+            
+            <div class="mt-8 pt-6 border-t border-gray-200">
+                <div class="flex flex-col sm:flex-row justify-between items-center">
+                    <div>
+                        <p class="font-bold text-acs-blue mb-2">Matériaux de qualité et durables</p>
+                        <p class="text-sm text-acs-gray">Respect des délais et du budget</p>
+                    </div>
+                    <a href="#contact" class="mt-4 sm:mt-0 bg-acs-blue text-white px-6 py-2 rounded-full font-medium hover:bg-blue-700 transition-colors">
+                        <i class="fas fa-phone-alt mr-2"></i> Demander un devis
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal Restauration -->
+    <div id="modal-restauration" class="modal">
+        <div class="modal-content bg-white rounded-2xl w-full p-6 md:p-8">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold text-acs-green">Restauration</h3>
+                <button class="close-modal text-2xl text-acs-gray hover:text-acs-red">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="mb-6 p-4 bg-acs-green/10 rounded-xl border-l-4 border-acs-green">
+                <p class="font-medium text-acs-green">
+                    <i class="fas fa-utensils mr-2"></i>
+                    Services culinaires de qualité pour tous vos événements
+                </p>
+            </div>
+            
+            <div class="space-y-4 text-acs-gray">
+                <p>
+                    Notre service de restauration propose des solutions culinaires adaptées à tous vos besoins : événements professionnels, séminaires, réceptions, cocktails, et services de restauration collective. Nous élaborons des menus variés et équilibrés, mettant en valeur les produits locaux tout en répondant aux goûts et exigences de chaque client. Notre équipe de chefs expérimentés crée des plats qui allient tradition et innovation.
+                </p>
+                
+                <p>
+                    Nous accordons une importance particulière à la qualité des produits utilisés, en privilégiant les approvisionnements locaux et les producteurs de la région. Nos menus sont conçus pour satisfaire toutes les préférences alimentaires, y compris les régimes spécifiques (végétarien, sans gluten, etc.). Nous assurons également un service impeccable, avec un personnel formé au service en salle et à la gestion des événements.
+                </p>
+                
+                <p>
+                    Que vous organisiez un petit déjeuner d'affaires, un déjeuner de travail, une grande réception ou un événement sur plusieurs jours, nous nous adaptons à vos contraintes et à votre budget. Nous prenons en charge l'ensemble de l'organisation : élaboration des menus, approvisionnement, préparation, service et nettoyage. Notre objectif est de vous offrir une expérience culinaire mémorable tout en vous permettant de vous concentrer sur l'essentiel.
+                </p>
+            </div>
+            
+            <div class="mt-8 pt-6 border-t border-gray-200">
+                <div class="flex flex-col sm:flex-row justify-between items-center">
+                    <div>
+                        <p class="font-bold text-acs-green mb-2">Menus sur mesure et équilibrés</p>
+                        <p class="text-sm text-acs-gray">Produits locaux de qualité</p>
+                    </div>
+                    <a href="#contact" class="mt-4 sm:mt-0 bg-acs-green text-white px-6 py-2 rounded-full font-medium hover:bg-green-600 transition-colors">
+                        <i class="fas fa-phone-alt mr-2"></i> Demander un devis
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Menu mobile
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Fermer le menu mobile en cliquant sur un lien
+        const mobileLinks = document.querySelectorAll('#mobileMenu a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // Mise à jour de l'année dans le footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Animation au scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+        
+        // Observer les éléments à animer
+        document.querySelectorAll('.card-hover').forEach((card, index) => {
+            card.classList.add('opacity-0', 'translate-y-10', 'transition-all', 'duration-500');
+            card.style.transitionDelay = `${index * 100}ms`;
+            observer.observe(card);
+        });
+        
+        // Gestion des modales
+        const serviceButtons = document.querySelectorAll('.service-btn');
+        const closeModalButtons = document.querySelectorAll('.close-modal');
+        const modals = document.querySelectorAll('.modal');
+        
+        // Ouvrir la modale correspondante
+        serviceButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const service = button.getAttribute('data-service');
+                const modal = document.getElementById(`modal-${service}`);
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Empêcher le défilement
+            });
+        });
+        
+        // Fermer les modales
+        closeModalButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const modal = button.closest('.modal');
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto'; // Rétablir le défilement
+            });
+        });
+        
+        // Fermer la modale en cliquant en dehors
+        modals.forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+        
+        // Fermer la modale avec la touche Échap
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                modals.forEach(modal => {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                });
+            }
+        });
+    </script>
+</body>
+</html>
